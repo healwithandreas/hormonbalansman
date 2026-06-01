@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hormonbalans för män – healwithandreas</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --blue:       #1E3A5A;
+  --blue-mid:   #2A5480;
+  --blue-light: #4A88C0;
+  --blue-pale:  #E4EEF8;
+  --earth:      #6A4020;
+  --earth-mid:  #9A6030;
+  --earth-light:#C49060;
+  --earth-pale: #F5EDE0;
+  --gold:       #C49A2A;
+  --gold-pale:  #FAF0D0;
+  --forest:     #1A3020;
+  --sage:       #3A6040;
+  --sage-pale:  #E4F0E8;
+  --red:        #8A2020;
+  --red-pale:   #F8EAEA;
+  --dark:       #0A0E14;
+  --text:       #1A2030;
+  --muted:      #607080;
+  --cream:      #F4F0EA;
+  --white:      #FAFDF8;
+}
+
+body {
+  background: var(--dark);
+  color: #E8EEF4;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #050A12 0%, #0A1020 50%, #0E141E 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 24px 120px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Geometric lines */
+.hero-lines {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.line {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, rgba(74,136,192,0.08), transparent);
+  height: 1px;
+}
+
+.line-1 { top: 25%; left: 0; right: 0; transform: rotate(-5deg); }
+.line-2 { top: 45%; left: 0; right: 0; transform: rotate(3deg); }
+.line-3 { top: 70%; left: 0; right: 0; transform: rotate(-2deg); }
+
+.hero-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.glow-1 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(30,58,90,0.4) 0%, transparent 70%); top: -200px; right: -200px; }
+.glow-2 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(26,48,32,0.3) 0%, transparent 70%); bottom: -100px; left: -100px; }
+
+.hero-inner { position: relative; z-index: 2; max-width: 700px; }
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(74,136,192,0.12);
+  border: 1px solid rgba(74,136,192,0.3);
+  border-radius: 4px;
+  padding: 8px 22px;
+  margin-bottom: 40px;
+  animation: fadeDown 0.8s ease both;
+}
+
+.badge-text {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--blue-light);
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(50px, 9vw, 96px);
+  font-weight: 900;
+  line-height: 0.95;
+  color: #F0F6FC;
+  margin-bottom: 6px;
+  animation: fadeDown 0.8s 0.1s ease both;
+  letter-spacing: -0.02em;
+}
+
+h1 span {
+  display: block;
+  color: var(--blue-light);
+  font-style: italic;
+  font-weight: 700;
+}
+
+.hero-line {
+  width: 80px; height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  margin: 32px auto;
+  animation: fadeDown 0.8s 0.2s ease both;
+}
+
+.hero-sub {
+  font-size: clamp(15px, 2.5vw, 17px);
+  color: rgba(224,234,244,0.55);
+  font-weight: 300;
+  line-height: 1.75;
+  max-width: 480px;
+  margin: 0 auto 48px;
+  animation: fadeDown 0.8s 0.3s ease both;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  animation: fadeUp 0.8s 0.4s ease both;
+}
+
+.stat { text-align: center; }
+.stat-n {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--blue-light);
+  line-height: 1;
+}
+.stat-l { font-size: 11px; color: rgba(224,234,244,0.4); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.1em; }
+
+.wave {
+  position: absolute;
+  bottom: -2px; left: 0; right: 0;
+  fill: #0F1520;
+}
+
+/* ── SECTIONS ── */
+section { padding: 80px 24px; }
+.container { max-width: 940px; margin: 0 auto; }
+
+.section-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--blue-light);
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 5vw, 50px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #F0F6FC;
+  margin-bottom: 14px;
+}
+
+.section-title em { color: var(--blue-light); font-style: italic; }
+.section-desc { font-size: 15.5px; color: rgba(224,234,244,0.5); line-height: 1.7; max-width: 560px; margin-bottom: 48px; }
+
+/* ── TESTOSTERONE ── */
+.t-section { background: #0F1520; }
+
+.t-big {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 640px) { .t-big { grid-template-columns: 1fr; } }
+
+.t-panel {
+  padding: 36px 32px;
+  position: relative;
+}
+
+.t-panel.good { background: #0A1A0A; }
+.t-panel.bad  { background: #1A0A0A; }
+
+.t-panel-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.t-panel.good .t-panel-label { color: #4A9A5A; }
+.t-panel.bad  .t-panel-label { color: #9A4A4A; }
+
+.t-panel-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #F0F6FC;
+}
+
+.t-list { list-style: none; }
+.t-list li {
+  font-size: 14px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  gap: 10px;
+  color: rgba(224,234,244,0.7);
+  line-height: 1.4;
+}
+.t-list li:last-child { border-bottom: none; }
+.t-panel.good .t-list li::before { content: '↑'; color: #4A9A5A; flex-shrink: 0; font-weight: 700; }
+.t-panel.bad  .t-list li::before { content: '↓'; color: #9A4A4A; flex-shrink: 0; font-weight: 700; }
+
+/* ── HORMONE CARDS ── */
+.hormones-section { background: #0A0E16; }
+
+.hormone-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.h-card {
+  background: #0F1520;
+  border-radius: 14px;
+  padding: 28px;
+  border-left: 3px solid;
+  transition: transform 0.2s;
+}
+
+.h-card:hover { transform: translateY(-3px); }
+.h-card.t  { border-color: var(--blue-light); }
+.h-card.co { border-color: #9A4A4A; }
+.h-card.e  { border-color: var(--earth-light); }
+.h-card.gh { border-color: var(--gold); }
+
+.h-icon { font-size: 28px; margin-bottom: 14px; }
+.h-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+.h-card.t  .h-name { color: var(--blue-light); }
+.h-card.co .h-name { color: #9A5A5A; }
+.h-card.e  .h-name { color: var(--earth-light); }
+.h-card.gh .h-name { color: var(--gold); }
+.h-desc { font-size: 13.5px; color: rgba(224,234,244,0.55); line-height: 1.65; margin-bottom: 14px; }
+.h-fact { font-size: 12px; font-weight: 600; padding: 8px 12px; border-radius: 8px; }
+.h-card.t  .h-fact { color: var(--blue-light); background: rgba(74,136,192,0.1); }
+.h-card.co .h-fact { color: #9A5A5A; background: rgba(154,74,74,0.1); }
+.h-card.e  .h-fact { color: var(--earth-light); background: rgba(196,144,96,0.1); }
+.h-card.gh .h-fact { color: var(--gold); background: rgba(196,154,42,0.1); }
+
+/* ── OPTIMERING ── */
+.optimize-section { background: #0F1520; }
+
+.opt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.opt-card {
+  background: #0A0E16;
+  border-radius: 14px;
+  padding: 24px;
+  border: 1px solid rgba(74,136,192,0.12);
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.opt-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--blue-light), transparent);
+}
+
+.opt-card:hover {
+  border-color: rgba(74,136,192,0.3);
+  transform: translateY(-3px);
+}
+
+.opt-icon { font-size: 28px; margin-bottom: 12px; }
+.opt-title { font-weight: 600; font-size: 15px; color: #F0F6FC; margin-bottom: 8px; }
+.opt-desc { font-size: 13px; color: rgba(224,234,244,0.5); line-height: 1.6; margin-bottom: 12px; }
+.opt-tip { font-size: 12px; font-weight: 600; color: var(--blue-light); }
+
+/* ── KILLERS ── */
+.killers-section { background: #0A0E16; }
+
+.killers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.killer-card {
+  background: rgba(154,74,74,0.06);
+  border: 1px solid rgba(154,74,74,0.15);
+  border-radius: 14px;
+  padding: 24px;
+  transition: all 0.2s;
+}
+
+.killer-card:hover { border-color: rgba(154,74,74,0.3); }
+
+.killer-icon { font-size: 26px; margin-bottom: 12px; }
+.killer-name { font-weight: 600; font-size: 14.5px; color: #B07070; margin-bottom: 8px; }
+.killer-text { font-size: 13px; color: rgba(224,234,244,0.5); line-height: 1.6; margin-bottom: 12px; }
+.killer-fix { font-size: 12px; font-weight: 600; color: #4A9A5A; background: rgba(74,154,90,0.08); padding: 7px 12px; border-radius: 8px; }
+
+/* ── NÄRING ── */
+.nutrition-section { background: #0F1520; }
+
+.nut-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+}
+
+.nut-card {
+  background: #0A0E16;
+  border-radius: 12px;
+  padding: 22px;
+  border-top: 2px solid var(--blue-light);
+  transition: transform 0.2s;
+}
+
+.nut-card:hover { transform: translateY(-3px); }
+.nut-icon { font-size: 24px; margin-bottom: 10px; }
+.nut-name { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--blue-light); margin-bottom: 6px; }
+.nut-why { font-size: 12.5px; color: rgba(224,234,244,0.5); line-height: 1.55; margin-bottom: 10px; }
+.nut-src { font-size: 11.5px; color: var(--gold); font-weight: 600; }
+
+/* ── PROTOCOL ── */
+.protocol-section { background: #0A0E16; }
+
+.protocol-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(74,136,192,0.12);
+}
+
+.protocol-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 22px 28px;
+  background: #0F1520;
+  border-bottom: 1px solid rgba(74,136,192,0.08);
+  transition: background 0.2s;
+}
+
+.protocol-item:last-child { border-bottom: none; }
+.protocol-item:hover { background: #131a26; }
+
+.protocol-time {
+  flex-shrink: 0;
+  background: var(--blue);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--blue-light);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.protocol-content h4 { font-size: 14px; font-weight: 600; color: #F0F6FC; margin-bottom: 4px; }
+.protocol-content p  { font-size: 12.5px; color: rgba(224,234,244,0.45); line-height: 1.5; }
+
+/* ── TEASER ── */
+.teaser-section {
+  background: linear-gradient(160deg, #060C18 0%, #0A1020 100%);
+  text-align: center;
+  padding: 100px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.teaser-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(30,58,90,0.4) 0%, transparent 65%);
+}
+
+.teaser-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+
+.teaser-badge {
+  display: inline-block;
+  background: rgba(196,154,42,0.15);
+  border: 1px solid rgba(196,154,42,0.35);
+  border-radius: 4px;
+  padding: 7px 20px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 32px;
+}
+
+.teaser-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(34px, 6vw, 62px);
+  font-weight: 900;
+  color: #F0F6FC;
+  line-height: 1.0;
+  margin-bottom: 6px;
+}
+
+.teaser-title span { display: block; color: var(--blue-light); font-style: italic; }
+
+.teaser-line { width: 80px; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); margin: 28px auto; }
+
+.teaser-text { font-size: 15.5px; color: rgba(224,234,244,0.5); line-height: 1.7; margin-bottom: 40px; }
+
+.teaser-modules {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 44px;
+  text-align: left;
+}
+
+@media (max-width: 500px) { .teaser-modules { grid-template-columns: 1fr; } }
+
+.teaser-module {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(74,136,192,0.07);
+  border: 1px solid rgba(74,136,192,0.12);
+  border-radius: 10px;
+  padding: 12px 16px;
+}
+
+.mod-n {
+  width: 26px; height: 26px;
+  background: var(--blue);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700;
+  color: var(--blue-light);
+  flex-shrink: 0;
+}
+
+.mod-t { font-size: 12.5px; color: rgba(224,234,244,0.65); line-height: 1.3; }
+
+.teaser-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--blue-mid);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 16px 36px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+  letter-spacing: 0.04em;
+}
+
+.teaser-cta:hover {
+  background: var(--blue-light);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(74,136,192,0.35);
+}
+
+.disclaimer {
+  margin-top: 36px;
+  font-size: 11px;
+  color: rgba(224,234,244,0.25);
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeDown { from { opacity:0; transform:translateY(-16px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeUp   { from { opacity:0; transform:translateY(16px);  } to { opacity:1; transform:translateY(0); } }
+
+.reveal { opacity:0; transform:translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+@media (max-width:600px) {
+  section { padding: 60px 20px; }
+  .hero-stats { gap: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-lines">
+    <div class="line line-1"></div>
+    <div class="line line-2"></div>
+    <div class="line line-3"></div>
+  </div>
+  <div class="hero-glow glow-1"></div>
+  <div class="hero-glow glow-2"></div>
+
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="badge-text">Gratis guide · healwithandreas</span>
+    </div>
+
+    <h1>Hormonbalans<span>för män</span></h1>
+
+    <div class="hero-line"></div>
+
+    <p class="hero-sub">Testosteron är bara början. Förstår du ditt hormonsystem förstår du din energi, din styrka, ditt fokus och din hälsa på ett fundamentalt nytt sätt.</p>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-n">1-2%</div>
+        <div class="stat-l">Testosteron minskar/år</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">40%</div>
+        <div class="stat-l">Män har lågt T vid 45+</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">15%</div>
+        <div class="stat-l">T-drop per vecka sömnbrist</div>
+      </div>
+    </div>
+  </div>
+
+  <svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none">
+    <path d="M0,30 C360,70 1080,0 1440,40 L1440,60 L0,60 Z"/>
+  </svg>
+</section>
+
+<!-- TESTOSTERON HIGH/LOW -->
+<section class="t-section">
+  <div class="container">
+    <div class="section-eyebrow reveal">Testosteron</div>
+    <h2 class="section-title reveal">Vad högt och lågt T <em>faktiskt innebär</em></h2>
+    <p class="section-desc reveal">Testosteron sjunker med 1-2% per år efter 30. Men åldern är inte den primära orsaken – livsstilen är det.</p>
+
+    <div class="t-big reveal">
+      <div class="t-panel good">
+        <div class="t-panel-label">Optimalt testosteron</div>
+        <div class="t-panel-title">Så här mår du</div>
+        <ul class="t-list">
+          <li>Hög och stabil energi under dagen</li>
+          <li>Stark libido och sexuell funktion</li>
+          <li>Bygger muskelmassa effektivt</li>
+          <li>Fokuserat och analytiskt tänkande</li>
+          <li>God sömn och snabb återhämtning</li>
+          <li>Driv, motivation och initiativförmåga</li>
+          <li>Stabil och jämn humörnivå</li>
+          <li>Stark benhälsa och skyddad hjärta</li>
+        </ul>
+      </div>
+
+      <div class="t-panel bad">
+        <div class="t-panel-label">Lågt testosteron</div>
+        <div class="t-panel-title">Tecken att känna igen</div>
+        <ul class="t-list">
+          <li>Kronisk trötthet – inte hjälpt av sömn</li>
+          <li>Minskad libido och erektionsproblem</li>
+          <li>Förlust av muskelmassa trots träning</li>
+          <li>Hjärndimma, dåligt minne och fokus</li>
+          <li>Depression, irritabilitet, apati</li>
+          <li>Minskad skäggväxt och kroppsbehåring</li>
+          <li>Ökad bukfetma trots normal kost</li>
+          <li>Värk i leder och minskad benstyrka</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NYCKELHORMONERNA -->
+<section class="hormones-section">
+  <div class="container">
+    <div class="section-eyebrow reveal">Hormonsystemet</div>
+    <h2 class="section-title reveal">Mannens <em>fyra nyckelspelare</em></h2>
+    <p class="section-desc reveal">Testosteron är inte ensamt. Det samverkar med tre andra kritiska hormoner du behöver förstå.</p>
+
+    <div class="hormone-row reveal">
+      <div class="h-card t">
+        <div class="h-icon">⚡</div>
+        <div class="h-name">Testosteron</div>
+        <div class="h-desc">Produceras i testiklarna under kontroll av LH från hypofysen. Ansvarar för muskler, benstyrka, libido, kognition, humör och kardiovaskulär hälsa. Sjunker med ålder men livsstil avgör hastigheten dramatiskt. Fritt testosteron är viktigare än totalt.</div>
+        <div class="h-fact">Viktigt: 1 vecka sömnbrist = -15% testosteron (JAMA, 2011)</div>
+      </div>
+
+      <div class="h-card co">
+        <div class="h-icon">🔥</div>
+        <div class="h-name">Kortisol</div>
+        <div class="h-desc">Stresshormonet som konkurrerar direkt med testosteron om pregnenolon – råvaran för båda. Vid kronisk stress prioriterar kroppen kortisol. Testosteronet sjunker. Det är inte en teori – det är biokemi. Lägre kortisol = högre testosteron, allt annat lika.</div>
+        <div class="h-fact">Kritiskt: Kronisk stress är den vanligaste orsaken till lågt T</div>
+      </div>
+
+      <div class="h-card e">
+        <div class="h-icon">⚖️</div>
+        <div class="h-name">Östrogen</div>
+        <div class="h-desc">Ja – män har östrogen, och det behövs. Det skyddar hjärtat, benen och hjärnan. Men för mycket östrogen (via aromatas i fettceller) sänker testosteron och ger gynekomasti, låg libido och humörproblem. Övervikt är den vanligaste orsaken till östrogendominans hos män.</div>
+        <div class="h-fact">Balansen: E2 ska vara 20-30 pg/mL för optimal manlig hälsa</div>
+      </div>
+
+      <div class="h-card gh">
+        <div class="h-icon">🌙</div>
+        <div class="h-name">Tillväxthormon</div>
+        <div class="h-desc">GH frisätts primärt under djupsömn – 80% av det dagliga totalet. Samverkar med testosteron för muskeltillväxt och fettförbränning. Sjunker med ålder men sömnkvalitet är den viktigaste faktorn. Alkohol blockerar GH-frisättningen under sömnen direkt.</div>
+        <div class="h-fact">Viktigt: Sömnbrist + alkohol = nära noll GH under natten</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPTIMERING -->
+<section class="optimize-section">
+  <div class="container">
+    <div class="section-eyebrow reveal">Naturlig optimering</div>
+    <h2 class="section-title reveal">Fem bevisade sätt att <em>höja testosteron</em></h2>
+    <p class="section-desc reveal">Inga injektioner. Inga tillskott. Bara biologi.</p>
+
+    <div class="opt-grid reveal">
+      <div class="opt-card">
+        <div class="opt-icon">🏋️</div>
+        <div class="opt-title">Tung styrketräning</div>
+        <div class="opt-desc">Sammansatta övningar (knäböj, marklyft, bänkpress) ger den starkaste akuta testosteronresponsen. 3-5 set med 70-85% av 1RM, 3-4 gånger/vecka.</div>
+        <div class="opt-tip">→ Prioritera benövningar – störst muskelmassa, störst hormonrespons</div>
+      </div>
+
+      <div class="opt-card">
+        <div class="opt-icon">😴</div>
+        <div class="opt-title">Sömnkvalitet</div>
+        <div class="opt-desc">Testosteron produceras under sömn. 7-9 timmars sömnkvalitet är mer kraftfullt för T-nivåerna än de flesta tillskott. Konsekvent läggtid är avgörande.</div>
+        <div class="opt-tip">→ Mörkt rum, 18 grader, inga skärmar 90 min innan</div>
+      </div>
+
+      <div class="opt-card">
+        <div class="opt-icon">☀️</div>
+        <div class="opt-title">Solljus & D-vitamin</div>
+        <div class="opt-desc">D-vitamin är direkt kopplat till testosteronnivåer. Studier visar att männen med högst D-vitamin har signifikant högre T. Morgonljus synkroniserar hela hormonsystemet.</div>
+        <div class="opt-tip">→ 20 min solljus dagligen + tillskott under vintern</div>
+      </div>
+
+      <div class="opt-card">
+        <div class="opt-icon">🥩</div>
+        <div class="opt-title">Kolesterol & protein</div>
+        <div class="opt-desc">Testosteron byggs från kolesterol. Lågfettkost sänker T direkt. Tillräckligt protein (1.6-2g/kg) stöder muskeltillväxt och GH-frisättning.</div>
+        <div class="opt-tip">→ Ägg, lever, nötfärs, fet fisk dagligen</div>
+      </div>
+
+      <div class="opt-card">
+        <div class="opt-icon">🧊</div>
+        <div class="opt-title">Kallexponering</div>
+        <div class="opt-desc">Kallbad och kalla duschar ökar noradrenalin kraftigt och stöder testosteronproduktionen. Testiklarna behöver vara 2-3 grader svalare än kroppen för optimal funktion.</div>
+        <div class="opt-tip">→ 2-3 min kalldusch på morgonen som daglig rutin</div>
+      </div>
+
+      <div class="opt-card">
+        <div class="opt-icon">🌿</div>
+        <div class="opt-title">Stresshantering</div>
+        <div class="opt-desc">Kortisol och testosteron är varandras direkta konkurrenter. Att sänka kortisol via andning, natur och återhämtning är en direkt testosteron-intervention.</div>
+        <div class="opt-tip">→ Box breathing 4-4-4-4, 2h natur/vecka, gränssättning</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KILLERS -->
+<section class="killers-section">
+  <div class="container">
+    <div class="section-eyebrow reveal">Undvik detta</div>
+    <h2 class="section-title reveal">Det som <em>saboterar</em> dina hormoner</h2>
+    <p class="section-desc reveal">Att ta bort det som stör är lika effektivt som att addera det som hjälper.</p>
+
+    <div class="killers-grid reveal">
+      <div class="killer-card">
+        <div class="killer-icon">🍺</div>
+        <div class="killer-name">Alkohol</div>
+        <div class="killer-text">Blockerar GH under sömn, ökar aromatas (konverterar T till östrogen) och direkt toxisk mot Leydig-cellerna som producerar testosteron.</div>
+        <div class="killer-fix">✓ Minimera – 1-2 gånger/vecka max, aldrig kvällen före träning</div>
+      </div>
+
+      <div class="killer-card">
+        <div class="killer-icon">🛋️</div>
+        <div class="killer-name">Övervikt (bukfetma)</div>
+        <div class="killer-text">Fettceller innehåller aromatase – enzymet som konverterar testosteron till östrogen. Mer bukfett = mer aromatas = lägre T och högre E2. En ond cirkel.</div>
+        <div class="killer-fix">✓ Styrketräning + kaloribalans + lägre kolhydrater</div>
+      </div>
+
+      <div class="killer-card">
+        <div class="killer-icon">🧴</div>
+        <div class="killer-name">BPA & ftalater</div>
+        <div class="killer-text">Syntetiska antiandrogener som blockerar testosteronreceptorer och minskar spermiekvalitet. Finns i plastförpackningar, kvitton och hudvård.</div>
+        <div class="killer-fix">✓ Glas och rostfritt stål – undvik plastbehållare till mat</div>
+      </div>
+
+      <div class="killer-card">
+        <div class="killer-icon">🍭</div>
+        <div class="killer-name">Socker & högt insulin</div>
+        <div class="killer-text">Högt insulin sänker SHBG, vilket ökar fritt testosteron kortvarigt – men driver insulinresistens som på sikt sänker T-produktionen kraftigt.</div>
+        <div class="killer-fix">✓ Minimera ultraprocessad mat och raffinerat socker</div>
+      </div>
+
+      <div class="killer-card">
+        <div class="killer-icon">📱</div>
+        <div class="killer-name">Kronisk stress</div>
+        <div class="killer-text">HPA-axelns aktivering prioriterar kortisol på bekostnad av testosteron via pregnenolon-stölden. Låggradig kronisk stress är värre än akut stress.</div>
+        <div class="killer-fix">✓ Stresshantering som hormonstrategi – inte psykologi</div>
+      </div>
+
+      <div class="killer-card">
+        <div class="killer-icon">🏃</div>
+        <div class="killer-name">Överträning</div>
+        <div class="killer-text">Kronisk överbelastning utan återhämtning höjer kortisol permanent och sänker T. Mer träning är inte alltid bättre – återhämtning är träning.</div>
+        <div class="killer-fix">✓ 1-2 vilodagar/vecka, prioritera sömn efter hård träning</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NÄRING -->
+<section class="nutrition-section">
+  <div class="container">
+    <div class="section-eyebrow reveal">Näring</div>
+    <h2 class="section-title reveal">Mat som <em>bygger hormoner</em></h2>
+    <p class="section-desc reveal">Testosteron byggs av kolesterol. Enzymerna som producerar det kräver zink, magnesium och D-vitamin. Du är vad du äter – bokstavligen.</p>
+
+    <div class="nut-grid reveal">
+      <div class="nut-card">
+        <div class="nut-icon">🥩</div>
+        <div class="nut-name">Zink</div>
+        <div class="nut-why">Direkt kofaktor i testosteronsyntes. Zinkbrist är associerat med lågt T. Nötlever innehåller mer zink per gram än något annat livsmedel.</div>
+        <div class="nut-src">Lever, ostron, pumpakärnor</div>
+      </div>
+
+      <div class="nut-card">
+        <div class="nut-icon">😌</div>
+        <div class="nut-name">Magnesium</div>
+        <div class="nut-why">Sänker SHBG vilket ökar fritt testosteron. Stöder sömn och kortisol-reglering. De flesta män är bristfälliga.</div>
+        <div class="nut-src">Pumpakärnor, mörk choklad</div>
+      </div>
+
+      <div class="nut-card">
+        <div class="nut-icon">☀️</div>
+        <div class="nut-name">D-vitamin</div>
+        <div class="nut-why">Studie: 3332 IE/dag under 1 år gav 25% högre testosteron (Pilz et al., 2011). Direkt koppling till T-receptorerna i testiklarna.</div>
+        <div class="nut-src">Solljus, lax, ägg + tillskott</div>
+      </div>
+
+      <div class="nut-card">
+        <div class="nut-icon">🥚</div>
+        <div class="nut-name">Kolesterol</div>
+        <div class="nut-why">Råvaran för testosteron. Lågfettkost sänker T direkt. Ägg, smör och lever är testosteron-friendly – inte fiender.</div>
+        <div class="nut-src">Ägg, smör, lever, fett kött</div>
+      </div>
+
+      <div class="nut-card">
+        <div class="nut-icon">🐟</div>
+        <div class="nut-name">Omega-3</div>
+        <div class="nut-why">Minskar inflammation som stör testosteronreceptorerna. DHA stöder hjärnans funktion och dopaminsystemet direkt.</div>
+        <div class="nut-src">Vild lax, makrill, sardiner</div>
+      </div>
+
+      <div class="nut-card">
+        <div class="nut-icon">💪</div>
+        <div class="nut-name">Protein & aminosyror</div>
+        <div class="nut-why">Hormoner byggs av aminosyror. 1.6-2g/kg dagligen stöder muskelsyntesen och GH-frisättning. Lever ger komplett aminosyraprofil. Fenylalanin – en aminosyra som bildar dopamin och noradrenalin – är ett av de mest underskattade verktygen för hormonell balans och motivation.</div>
+        <div class="nut-src">Lever, ägg, fisk, kött</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DAGLIG PROTOKOLL -->
+<section class="protocol-section">
+  <div class="container">
+    <div class="section-eyebrow reveal">Morgonprotokoll</div>
+    <h2 class="section-title reveal">60 minuter som <em>sätter dagen</em></h2>
+    <p class="section-desc reveal">Konsistens slår perfektion. Gör dessa saker varje morgon och ditt hormonsystem tackar dig.</p>
+
+    <div class="protocol-list reveal">
+      <div class="protocol-item">
+        <div class="protocol-time">0–5 min</div>
+        <div class="protocol-content">
+          <h4>Inga skärmar</h4>
+          <p>Låt kortisolets morgonpuls (CAR) stiga naturligt. Sociala medier direkt vid uppvaknande saboterar dygnsrytmen.</p>
+        </div>
+      </div>
+      <div class="protocol-item">
+        <div class="protocol-time">5–15 min</div>
+        <div class="protocol-content">
+          <h4>Ute i morgonljus</h4>
+          <p>Synkroniserar den cirkadiska klockan. Startar kortisolpulsen rätt. Påverkar sömnkvaliteten samma kväll.</p>
+        </div>
+      </div>
+      <div class="protocol-item">
+        <div class="protocol-time">15–20 min</div>
+        <div class="protocol-content">
+          <h4>Kalldusch 2–3 minuter</h4>
+          <p>Ökar noradrenalin kraftigt. Aktiverar nervsystemet. Stöder testosteronproduktionen via termoregulering.</p>
+        </div>
+      </div>
+      <div class="protocol-item">
+        <div class="protocol-time">20–25 min</div>
+        <div class="protocol-content">
+          <h4>Box breathing 4-4-4-4</h4>
+          <p>Sänker grundkortisol. Aktiverar vagusnerven. Sätter stressnivån för hela dagen på en lägre baslinje.</p>
+        </div>
+      </div>
+      <div class="protocol-item">
+        <div class="protocol-time">25–50 min</div>
+        <div class="protocol-content">
+          <h4>Proteinrik frukost</h4>
+          <p>Ägg, lever eller animaliskt protein. Kolesterol och zink som råvaror för testosteronproduktionen.</p>
+        </div>
+      </div>
+      <div class="protocol-item">
+        <div class="protocol-time">50–60 min</div>
+        <div class="protocol-content">
+          <h4>Rörlighet, mobilitet & kegelträning</h4>
+          <p>Morgonen passar bättre för lågintensiv aktivering än tung träning – kroppstemperatur, ledflexibilitet och muskeltonus är som bäst på eftermiddagen. Mjuk rörlighetsträning aktiverar nervsystemet utan att stressa kortisol. Kegelträning stärker bäckenbottenmuskulaturen, förbättrar blodcirkulationen i bäckenet och stöder testosteronproduktionen indirekt. Spara styrkepasset till 15–18-tiden.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNER-SEKTIONEN -->
+<section style="background:#0F1520; padding:80px 24px;">
+  <div class="container">
+    <div class="section-eyebrow reveal">För relationen</div>
+    <h2 class="section-title reveal">Vad du som man bör veta om <em>hennes hormoner</em></h2>
+    <p class="section-desc reveal">Att förstå hennes hormonella cykel är inte att gå på tå – det är att vara en klok partner. Biologi skapar sammanhang, sammanhang skapar empati.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px;" class="reveal">
+
+      <div style="background:#0A0E16; border-radius:14px; padding:28px; border-left:3px solid #C47A8A;">
+        <div style="font-size:26px; margin-bottom:12px;">🌊</div>
+        <div style="font-family:'Playfair Display',serif; font-size:17px; font-weight:700; color:#C47A8A; margin-bottom:8px;">Hennes humör är inte opålitligt – det är cykliskt</div>
+        <p style="font-size:13px; color:rgba(224,234,244,0.55); line-height:1.65;">Dag 20–28 i lutealfasen sjunker progesteronet och hon kan bli mer känslig, introvert eller irritabel. Det är inte personlighet – det är biokemi. Närvaro och lugn väger tungt dessa dagar.</p>
+      </div>
+
+      <div style="background:#0A0E16; border-radius:14px; padding:28px; border-left:3px solid #C47A8A;">
+        <div style="font-size:26px; margin-bottom:12px;">⚡</div>
+        <div style="font-family:'Playfair Display',serif; font-size:17px; font-weight:700; color:#C47A8A; margin-bottom:8px;">Dag 12–16 är hennes naturliga höjdpunkt</div>
+        <p style="font-size:13px; color:rgba(224,234,244,0.55); line-height:1.65;">Runt ägglossningen stiger östrogen och testosteron. Hon är mer social, energisk och oftast mer intresserad av intimitet. Planera viktiga samtal, dejter och gemensamma utmaningar till dessa dagar.</p>
+      </div>
+
+      <div style="background:#0A0E16; border-radius:14px; padding:28px; border-left:3px solid #C47A8A;">
+        <div style="font-size:26px; margin-bottom:12px;">😴</div>
+        <div style="font-family:'Playfair Display',serif; font-size:17px; font-weight:700; color:#C47A8A; margin-bottom:8px;">Hennes sömnbehov varierar under månaden</div>
+        <p style="font-size:13px; color:rgba(224,234,244,0.55); line-height:1.65;">I lutealfas och under mens behöver hon generellt mer sömn och återhämtning. Att respektera det – utan att ifrågasätta – är ett av de starkaste sakerna du kan göra för hennes hormonhälsa och er relation.</p>
+      </div>
+
+      <div style="background:#0A0E16; border-radius:14px; padding:28px; border-left:3px solid #C47A8A;">
+        <div style="font-size:26px; margin-bottom:12px;">🍽️</div>
+        <div style="font-family:'Playfair Display',serif; font-size:17px; font-weight:700; color:#C47A8A; margin-bottom:8px;">Hennes kost- och energibehov skiftar</div>
+        <p style="font-size:13px; color:rgba(224,234,244,0.55); line-height:1.65;">Premenstruellt ökar hennes kalori- och magnesiumbehov. Sug efter socker och kolhydrater är inte brist på viljestyrka – det är fysiologi. Att laga mat rik på magnesium och protein dessa dagar är ett konkret stöd.</p>
+      </div>
+
+      <div style="background:#0A0E16; border-radius:14px; padding:28px; border-left:3px solid #C47A8A;">
+        <div style="font-size:26px; margin-bottom:12px;">🧠</div>
+        <div style="font-family:'Playfair Display',serif; font-size:17px; font-weight:700; color:#C47A8A; margin-bottom:8px;">Stress slår hårdare mot hennes hormonsystem</div>
+        <p style="font-size:13px; color:rgba(224,234,244,0.55); line-height:1.65;">Kronisk stress stjäl progesteron direkt. En trygg, förutsägbar hemmiljö är inte en lyx för henne – det är ett hormonellt stöd. Att ta på dig logistik och ansvar i pressade perioder är faktiskt hormonoptimering.</p>
+      </div>
+
+      <div style="background:#0A0E16; border-radius:14px; padding:28px; border-left:3px solid #C47A8A;">
+        <div style="font-size:26px; margin-bottom:12px;">💬</div>
+        <div style="font-family:'Playfair Display',serif; font-size:17px; font-weight:700; color:#C47A8A; margin-bottom:8px;">Fråga – kartlägg inte</div>
+        <p style="font-size:13px; color:rgba(224,234,244,0.55); line-height:1.65;">Kunskap om hennes cykel är ett verktyg för empati, inte ett analysschema. Fråga hur hon mår, lyssna utan att lösa. Att säga "jag förstår att det är tuffa dagar nu" slår "det är väl bara PMS" med flera galaxer.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TEASER -->
+<section class="teaser-section">
+  <div class="teaser-inner">
+    <div class="teaser-badge">⚡ Fördjupning hormoner – Kommer snart</div>
+    <h2 class="teaser-title">Vill du förstå allt<span>på djupet?</span></h2>
+    <div class="teaser-line"></div>
+    <p class="teaser-text">Den här guiden är ett smakprov. Fördjupning hormoner ger dig den fullständiga bilden – testosteron, kortisol, sömn, näring, naturens kraft och ett 60-dagars schema att följa. Den fungerar också som bas för den gemensamma fördjupningen för dig, din partner och familjen.</p>
+
+    <div class="teaser-modules">
+      <div class="teaser-module">
+        <div class="mod-n">1</div>
+        <div class="mod-t">Hormonsystemets grunder</div>
+      </div>
+      <div class="teaser-module">
+        <div class="mod-n">2</div>
+        <div class="mod-t">Testosteron & optimering</div>
+      </div>
+      <div class="teaser-module">
+        <div class="mod-n">3</div>
+        <div class="mod-t">Kortisol & stresshantering</div>
+      </div>
+      <div class="teaser-module">
+        <div class="mod-n">4</div>
+        <div class="mod-t">Näring & hormoner</div>
+      </div>
+      <div class="teaser-module">
+        <div class="mod-n">5</div>
+        <div class="mod-t">Sömn som strategi</div>
+      </div>
+      <div class="teaser-module">
+        <div class="mod-n">6</div>
+        <div class="mod-t">60-dagars schema att följa</div>
+      </div>
+    </div>
+
+    <a href="https://www.instagram.com/healwithandreas" class="teaser-cta" target="_blank">
+      📸 FÖLJ @healwithandreas FÖR LANSERING
+    </a>
+
+    <p class="disclaimer">
+      Informationsunderlag baserat på vetenskapliga källor · Ej medicinsk rådgivning<br>
+      Rådfråga alltid din läkare vid funderingar kring din hormonhälsa
+    </p>
+  </div>
+</section>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
